@@ -4,7 +4,7 @@
     <a href="<?= base_url('app/index') ?>" class="brand-link">
       <img src="<?= base_url() ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">KOPERASI</span>
+      <span class="brand-text font-weight-light">DIET APP</span>
     </a>
 
     <!-- Sidebar -->
@@ -34,77 +34,23 @@
               </p>
             </a>
           </li>
-          
-          <li class="nav-header">MEMBER AREA</li>
           <li class="nav-item">
-            <a href="<?= base_url('app/register_member') ?>" class="nav-link">
-              <i class="nav-icon far fa-user"></i>
+            <a href="<?= base_url('app/artikel') ?>" class="nav-link">
+              <i class="nav-icon fas fa-toilet-paper-slash"></i>
               <p>
-                Registrasi Member
+                Artikel
                 <!-- <span class="badge badge-info right">2</span> -->
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+          <li class="nav-item">
+            <a href="<?= base_url('app/makanan') ?>" class="nav-link">
+              <i class="nav-icon fas fa-truck"></i>
               <p>
-                Users dan Members
-                <i class="right fas fa-angle-left"></i>
+                Data Makanan
+                <!-- <span class="badge badge-info right">2</span> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('app/users') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('app/members') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Members</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-header">AKSI</li>
-           <!-- tambah class menu-open untuk secara otomatis membuka -->  	
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
-              <p>
-                Transaksi
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('app/simpan') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simpan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('app/pinjam') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pinjam</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('app/withdraw') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Withdraw</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('app/angsuran') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Angsuran</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <li class="nav-header">LABELS</li>

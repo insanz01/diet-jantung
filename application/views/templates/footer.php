@@ -1,16 +1,25 @@
+  <style type="text/css">
+    .user-footer {
+      margin-left: 0 !important;
+    }
+  </style>
+
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; <?= date('Y', time()) ?> <a href="http://adminlte.io">Memofy</a>.</strong>
+  <footer class="main-footer <?= ($is_user) ? 'user-footer' : '' ?>">
+    <strong>Copyright &copy; <?= date('Y', time()) ?> <a href="http://adminlte.io">Fitriana Puspa Wardani</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0
     </div>
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+  <?php if(!$is_user): ?>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+
+  <?php endif; ?>
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->

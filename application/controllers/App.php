@@ -1,10 +1,14 @@
 <?php
 
 class App extends CI_Controller {
+	private $data = array();
+
 	public function __construct() {
 		parent::__construct();
 
 		$this->load->model('CRUDModel', 'crud');
+
+		$this->data['is_user'] = false;
 	}
 
 	// halaman dashboard
@@ -13,7 +17,7 @@ class App extends CI_Controller {
 		$this->load->view('templates/navbar');
 		$this->load->view('templates/sidebar');
 		$this->load->view('app/dashboard');
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer', $this->data);
 	}
 
 	// member area
@@ -44,7 +48,7 @@ class App extends CI_Controller {
 			$this->load->view('templates/navbar');
 			$this->load->view('templates/sidebar');
 			$this->load->view('app/member/registrasi', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $this->data);
 		} else {
 			$data = $this->input->post();
 
@@ -91,7 +95,7 @@ class App extends CI_Controller {
 			$this->load->view('templates/navbar');
 			$this->load->view('templates/sidebar');
 			$this->load->view('app/member/users', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $this->data);
 		}
 
 	}
@@ -118,33 +122,66 @@ class App extends CI_Controller {
 			$this->load->view('templates/navbar');
 			$this->load->view('templates/sidebar');
 			$this->load->view('app/member/members', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $this->data);
 		}
 	}
 
 	// transaksi area
-	public function simpan() {
-		$this->load->view('templates/header');
-		$this->load->view('templates/navbar');
-		$this->load->view('templates/sidebar');
-		$this->load->view('app/transaksi/simpan');
-		$this->load->view('templates/footer');
+	public function artikel($aksi = '', $id = NULL) {
+		if($aksi == 'edit') {
+
+		} else if($aksi == 'hapus') {
+
+		} else if($aksi == 'tambah') {
+			$data = $this->input->post();
+
+			if($this->crud->insert($data, 'artikel')) {
+
+			} else {
+
+			}
+
+			redirect("App/artikel");
+		} else {
+			$data['artikel'] = [];
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
+			$this->load->view('templates/sidebar');
+			$this->load->view('app/artikel/index', $data);
+			$this->load->view('templates/footer', $this->data);
+		}
 	}
 
-	public function pinjam() {
-		$this->load->view('templates/header');
-		$this->load->view('templates/navbar');
-		$this->load->view('templates/sidebar');
-		$this->load->view('app/transaksi/pinjam');
-		$this->load->view('templates/footer');
-	}
+	public function makanan($aksi = '', $id = NULL) {
+		if($aksi == 'edit') {
 
-	public function withdraw() {
+		} else if($aksi == 'hapus') {
 
-	}
+		} else if($aksi == 'tambah') {
 
-	public function angsuran() {
+			$data = $this->input->post();
+			$bahan = $data['bahan'].explode(',');
+			
+			$temp = array();
+			foreach($bahan as $b) {
+				if($b !== '') {
+					array_push($temp, $b);
+				}
+			}
 
+			// apakah perlu di overwrite ?
+			// $data['bahan'] = $temp;
+
+		} else {
+			$data['makanan'] = [];
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/navbar');
+			$this->load->view('templates/sidebar');
+			$this->load->view('app/makanan/index', $data);
+			$this->load->view('templates/footer', $this->data);
+		}
 	}
 
 	// lainnya untuk kebutuhan API
